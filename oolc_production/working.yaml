@@ -1,0 +1,6 @@
+project_id: oomlout_organizing_tool_drill_hammer_18_volt
+project_name: Oomlout Organizing Tool Drill Hammer 18 Volt
+project_repo: https://github.com/oomlout/oomlout_organizing_tool_drill_hammer_18_volt
+production_format:
+  oolc_1:
+    file_location: source_files/oolc_1.cdr
