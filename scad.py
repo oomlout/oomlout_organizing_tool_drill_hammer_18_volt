@@ -93,7 +93,7 @@ def get_base(thing, **kwargs):
     p3["width"] = width - 2
     p3["shape"] = f"oobb_holes"
     p3["both_holes"] = True  
-    p3["depth"] = depth
+    #p3["depth"] = depth
     p3["holes"] = "perimeter"
     #p3["m"] = "#"
     pos1 = copy.deepcopy(pos)         
@@ -132,14 +132,14 @@ def get_base(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "p"
         p3["shape"] = f"oobb_cylinder"
-        dep2 = 3
+        dep2 = 3 + 5
         p3["depth"] = dep2
         p3["radius"] = 25/2
         #p3["m"] = "#"
         pos1 = copy.deepcopy(pos_peg_1)
-        pos1[2] += -dep + dep2/2
+        pos1[2] += -dep + dep2/2 - 5
         pos2 = copy.deepcopy(pos_peg_2)
-        pos2[2] += -dep + dep2/2
+        pos2[2] += -dep + dep2/2 - 5
         poss = [] 
         poss.append(pos1)
         poss.append(pos2)
@@ -155,14 +155,20 @@ def get_base(thing, **kwargs):
         p3["overhang"] = True
         p3["zz"] = "top"
         p3["hole"] = True
-        #p3["m"] = "#"
+        p3["m"] = "#"
         pos1 = copy.deepcopy(pos_peg_1)
-        pos1[2] += depth
+        pos1[2] += 9
+        pos11 = copy.deepcopy(pos_peg_1)
+        pos11[2] += -depth + 9
         pos2 = copy.deepcopy(pos_peg_2)
-        pos2[2] += depth
+        pos2[2] += 9
+        pos22 = copy.deepcopy(pos_peg_2)
+        pos22[2] += -depth + 9
         poss = []
         poss.append(pos1)
+        poss.append(pos11)
         poss.append(pos2)
+        poss.append(pos22)
         p3["pos"] = poss
         oobb_base.append_full(thing,**p3)
 
