@@ -28,7 +28,7 @@ def make_scad(**kwargs):
         kwargs["size"] = "oobb"
         kwargs["width"] = 9
         kwargs["height"] = 2
-        kwargs["thickness"] = 9
+        kwargs["thickness"] = 70
 
     # project_variables
     if True:
@@ -44,11 +44,17 @@ def make_scad(**kwargs):
         
         part = copy.deepcopy(part_default)
         p3 = copy.deepcopy(kwargs)
-        #p3["thickness"] = 6
+        p3["thickness"] = 70
+        part["kwargs"] = p3
+        part["name"] = "base"        
+        parts.append(part)
+
+        part = copy.deepcopy(part_default)
+        p3 = copy.deepcopy(kwargs)
+        p3["thickness"] = 60
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
-
         
     #make the parts
     if True:
@@ -76,7 +82,7 @@ def get_base(thing, **kwargs):
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "p"
     p3["shape"] = f"oobb_plate"    
-    p3["depth"] = depth
+    p3["depth"] = 9
     #p3["m"] = "#"
     pos1 = copy.deepcopy(pos)         
     p3["pos"] = pos1
@@ -108,7 +114,7 @@ def get_base(thing, **kwargs):
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "p"
     p3["shape"] = f"oobb_cylinder"
-    dep = 60
+    dep = depth - 9
     p3["depth"] = dep
     p3["radius"] = 14/2
     #p3["m"] = "#"    
